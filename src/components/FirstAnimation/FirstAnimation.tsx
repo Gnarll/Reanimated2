@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withRepeat, withSpring } from "react-native-reanimated";
+import { SIZE } from "../../constants";
 
-const SIZE: number = 100
 
 
 export const FirstAnimation = () => {

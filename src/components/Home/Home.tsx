@@ -3,18 +3,19 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
 import {  SafeAreaView, StyleSheet, Text, TouchableOpacity} from "react-native";
-import { RootStackParamList, ROUTES } from "../../types";
+import { ROUTES } from "../../constants";
+import { RootStackParamList } from "../../types";
 
 type Props = NativeStackScreenProps<RootStackParamList, ROUTES.Home>
 
 export const Home = ({navigation}: Props) => {
 
-    const pages: string[] = ['First Animation']
+    const pages = [{path: ROUTES.FirstAnimation, name: 'First Animation'}, {path: ROUTES.SecondAnimation, name: 'Second Animation'}]
 
     return <SafeAreaView style={styles.container}>
-     {pages.map((page: string, index: number) => {
+     {pages.map((page, index) => {
          return <TouchableOpacity key={index}>
-             <Text style={styles.box} onPress={() => navigation.navigate(ROUTES.FirstAnimation)}>{page}</Text>
+             <Text style={styles.box} onPress={() => navigation.navigate(page.path)}>{page.name}</Text>
          </TouchableOpacity>
      })}
  </SafeAreaView>
