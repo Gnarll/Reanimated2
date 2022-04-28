@@ -10,7 +10,7 @@ type Props = NativeStackScreenProps<RootStackParamList, ROUTES.Home>
 
 export const Home = ({navigation}: Props) => {
 
-    const pages = [{path: ROUTES.FirstAnimation, name: 'First Animation'}, {path: ROUTES.SecondAnimation, name: 'Second Animation'}]
+    const pages = [{path: ROUTES.FirstAnimation, name: 'First Animation'}, {path: ROUTES.SecondAnimation, name: 'Second Animation'}, {path: ROUTES.ThirdAnimation, name: 'Third Animation'}]
 
     return <SafeAreaView style={styles.container}>
      {pages.map((page, index) => {
