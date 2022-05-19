@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import {   PanGestureHandler, PanGestureHandlerGestureEvent } from "react-native-gesture-handler";
+import {   GestureHandlerRootView, PanGestureHandler, PanGestureHandlerGestureEvent } from "react-native-gesture-handler";
 import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue } from "react-native-reanimated";
 import { CIRCLE_RADIUS, SIZE } from "../../constants";
 import { Dimensions } from 'react-native';
@@ -39,10 +39,22 @@ export const SecondAnimation = () => {
                     translateY.value = withSpring(0)
                 }
 
-                if(translateX.value < - ((windowWidth - SIZE) / 2)) translateX.value = withSpring(- ((windowWidth - SIZE) / 2)) 
-                if(translateX.value > (windowWidth - SIZE) / 2) translateX.value = withSpring((windowWidth - SIZE) / 2)
-                if(translateY.value < - ((windowHeight - SIZE * 2) / 2)) translateY.value = withSpring(- ((windowHeight - SIZE * 2) / 2)) 
-                if(translateY.value > (windowHeight - SIZE * 2) / 2) translateY.value = withSpring((windowHeight - SIZE * 2) / 2)
+                if(translateX.value < - ((windowWidth - SIZE) / 2)) {
+                    translateX.value = withSpring(0) 
+                    translateY.value = withSpring(0)
+                }
+                if(translateX.value > (windowWidth - SIZE) / 2){
+                    translateX.value = withSpring(0) 
+                    translateY.value = withSpring(0)
+                }
+                if(translateY.value < - ((windowHeight - SIZE * 2) / 2)) {
+                    translateX.value = withSpring(0) 
+                    translateY.value = withSpring(0)
+                } 
+                if(translateY.value > (windowHeight - SIZE * 2) / 2) {
+                    translateX.value = withSpring(0) 
+                    translateY.value = withSpring(0)
+                }
         },
     }) 
 
@@ -52,13 +64,13 @@ export const SecondAnimation = () => {
         }
     })
 
-    return <View style={styles.container}>
-        <View style={styles.circle}>
-            <PanGestureHandler onGestureEvent={panGestureEvent}>
-                <Animated.View style={[styles.figure, rStyle]}/>
-            </PanGestureHandler>
-        </View>
-    </View>
+    return <GestureHandlerRootView style={styles.container}>
+        <Animated.View style={styles.circle}>
+                <PanGestureHandler onGestureEvent={panGestureEvent}>
+                    <Animated.View style={[styles.figure, rStyle]}/>
+                </PanGestureHandler>
+        </Animated.View>
+    </GestureHandlerRootView>
 }
 
 const styles = StyleSheet.create({
