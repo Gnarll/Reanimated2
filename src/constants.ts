@@ -4,6 +4,7 @@ export enum ROUTES {
     SecondAnimation =  'SecondAnimation',
     ThirdAnimation = 'ThirdAnimation',
     FourthAnimation = 'FourthAnimation',
+    FifthAnimation = 'FifthAnimation'
 }
 
 export const SIZE = 90

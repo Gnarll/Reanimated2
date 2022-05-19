@@ -8,6 +8,7 @@ import SecondAnimation from './src/components/SecondAnimation';
 import { ROUTES } from './src/constants';
 import ThirdAnimation from './src/components/ThirdAnimation';
 import FourthAnimation from './src/components/FourthAnimation';
+import FifthAnimation from './src/components/FifthAnimation';
 
 
 
@@ -22,6 +23,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
         <RootStack.Screen name={ROUTES.SecondAnimation} component={SecondAnimation} options={{title: 'Second Animation'}} />
         <RootStack.Screen name={ROUTES.ThirdAnimation} component={ThirdAnimation} options={{title: 'Third Animation'}} />
         <RootStack.Screen name={ROUTES.FourthAnimation} component={FourthAnimation} options={{title: 'Fourth Animation'}} />
+        <RootStack.Screen name={ROUTES.FifthAnimation} component={FifthAnimation} options={{title: 'Fifth Animation'}} />
       </RootStack.Navigator>
     </NavigationContainer>
   );
